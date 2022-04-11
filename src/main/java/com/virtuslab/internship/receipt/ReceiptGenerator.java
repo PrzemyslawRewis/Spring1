@@ -1,6 +1,7 @@
 package com.virtuslab.internship.receipt;
 
 import com.virtuslab.internship.basket.Basket;
+import com.virtuslab.internship.discount.FifteenPercentDiscount;
 import com.virtuslab.internship.discount.TenPercentDiscount;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.product.ProductDb;
@@ -27,6 +28,15 @@ public class ReceiptGenerator {
             receiptEntries.add(new ReceiptEntry(val.getKey(), val.getValue()));
         }
         Receipt newReceipt = new Receipt(receiptEntries);
+
+        for (var i: newReceipt.discounts())
+        {
+            switch (i)
+            {
+                case "FifteenPercentDiscount" -> newReceipt = ((new FifteenPercentDiscount()).apply(newReceipt));
+                case "TenPercentDiscount" -> newReceipt = ((new TenPercentDiscount()).apply(newReceipt));
+            }
+        }
 
         return newReceipt;
     }

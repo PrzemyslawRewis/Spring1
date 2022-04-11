@@ -5,7 +5,6 @@ import com.virtuslab.internship.product.Product;
 import java.math.BigDecimal;
 
 
-
 public record ReceiptEntry(
         Product product,
         int quantity,

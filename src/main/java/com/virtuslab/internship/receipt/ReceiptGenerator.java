@@ -14,8 +14,7 @@ public class ReceiptGenerator {
     public Receipt generate(Basket basket) {
         List<Product> productList = basket.getProducts();
         Map<Product, Integer> frequencyMap = new HashMap<>();
-        for (Product s: productList)
-        {
+        for (Product s : productList) {
             Integer count = frequencyMap.get(s);
             if (count == null) {
                 count = 0;
@@ -23,16 +22,13 @@ public class ReceiptGenerator {
             frequencyMap.put(s, count + 1);
         }
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
-        for(Map.Entry<Product, Integer> val : frequencyMap.entrySet())
-        {
+        for (Map.Entry<Product, Integer> val : frequencyMap.entrySet()) {
             receiptEntries.add(new ReceiptEntry(val.getKey(), val.getValue()));
         }
         Receipt newReceipt = new Receipt(receiptEntries);
 
-        for (var i: newReceipt.discounts())
-        {
-            switch (i)
-            {
+        for (var i : newReceipt.discounts()) {
+            switch (i) {
                 case "FifteenPercentDiscount" -> newReceipt = ((new FifteenPercentDiscount()).apply(newReceipt));
                 case "TenPercentDiscount" -> newReceipt = ((new TenPercentDiscount()).apply(newReceipt));
             }

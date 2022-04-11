@@ -23,7 +23,7 @@ public class ProductDb {
                 new Product("Pork", Product.Type.MEAT, new BigDecimal(16)),
                 new Product("Steak", Product.Type.MEAT, new BigDecimal(50)),
                 new Product("Bread", Product.Type.GRAINS, new BigDecimal(5)),
-                new Product("Cereals", Product.Type.GRAINS,new BigDecimal(8))
+                new Product("Cereals", Product.Type.GRAINS, new BigDecimal(8))
         ).collect(Collectors.toSet());
     }
 

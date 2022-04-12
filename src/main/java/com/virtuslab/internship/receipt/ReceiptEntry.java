@@ -14,4 +14,11 @@ public record ReceiptEntry(
         this(product, quantity, product.price().multiply(BigDecimal.valueOf(quantity)));
     }
 
+    @Override
+    public String toString() {
+        return product+
+                "" + quantity +
+                "</td><td>" + totalPrice +
+                "</td>";
+    }
 }

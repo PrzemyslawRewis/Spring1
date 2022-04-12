@@ -10,4 +10,13 @@ public record Product(
     public enum Type {
         DAIRY, FRUITS, VEGETABLES, MEAT, GRAINS
     }
+
+    @Override
+    public String toString() {
+        return
+                "<tr><td></td><td>" + name +
+                "</td><td>" + type +
+                "</td><td>" + price +
+                "</td><td>";
+    }
 }

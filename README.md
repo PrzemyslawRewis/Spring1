@@ -1,3 +1,3 @@
-# vl-internship-master
+# vl internship task
 
 My solution for task
